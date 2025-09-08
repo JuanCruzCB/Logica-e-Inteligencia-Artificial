@@ -13,6 +13,8 @@
 
 ## Teoría
 
+- [Playlist con clases de teoría de 2020](https://www.youtube.com/playlist?list=PLDJU8kNAPOn8OZcdahKl8_kuraf_sYq7V)
+
 ## Cómo se aprueba la cursada?
 
 - Hay un parcial con un recuperatorio donde se evalúa el módulo de Lógica.
