@@ -17,9 +17,13 @@
 
 ## Cómo se aprueba la cursada?
 
-- Hay un parcial con un recuperatorio donde se evalúa el módulo de Lógica.
+- Hay un parcial con un recuperatorio donde se evalúa el módulo de Lógica (prácticas 1 a 6).
   - Este parcial es libro abierto, es decir se puede llevar el libro de Lógica Para Matemáticos (Hamilton) con apuntes en él, subrayados, etc.
-  - Se aprueba con 6 o más.
+  - No se usan hojas, se entrega un examen preimpreso.
+  - No se permite el uso de celulares ni relojes inteligentes.
+  - Con 6 o más se accede a la promoción.
+  - 10 ejercicios, todos valen un punto.
+  - Se requiere llevar DNI.
 - Hay un proyecto con un recuperatorio donde se evalúa el módulo de Inteligencia Artificial.
   - Se aprueba con 6 o más.
 - Se deben aprobar ambos módulos para obtener la cursada.
