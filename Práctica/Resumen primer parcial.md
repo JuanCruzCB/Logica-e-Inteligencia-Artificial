@@ -14,17 +14,17 @@ Una frase puede no ser ni verdadera ni falsa.
 
 - **Negación ($\lnot$)**
 
-| p   | $\lnot$p |
-| --- | -------- |
-| V   | F        |
-| F   | V        |
+| $p$ | $\lnot p$ |
+| --- | --------- |
+| V   | F         |
+| F   | V         |
 
 - **Conjunción ($\land$)**
   - Es conmutativa: (p $\land$ q) $\Leftrightarrow$ (q $\land$ p)
   - Es asociativa: ((p $\land$ q) $\land$ r) $\Leftrightarrow$ (p $\land$ (q $\land$ r))
   - Es distributiva respecto a la disyunción: (p $\land$ (q $\lor$ r)) $\Leftrightarrow$ ((p $\land$ q) $\lor$ (p $\land$ r))
 
-| p   | q   | p $\land$ q |
+| $p$ | $q$ | $p \land q$ |
 | --- | --- | ----------- |
 | V   | V   | V           |
 | V   | F   | F           |
@@ -36,7 +36,7 @@ Una frase puede no ser ni verdadera ni falsa.
   - Es asociativa: ((p $\lor$ q) $\lor$ r) $\Leftrightarrow$ (p $\lor$ (q $\lor$ r))
   - Es distributiva respecto a la conjunción: (p $\lor$ (q $\land$ r)) $\Leftrightarrow$ ((p $\lor$ q) $\land$ (p $\lor$ r))
 
-| p   | q   | p $\lor$ q |
+| $p$ | $q$ | $p \lor q$ |
 | --- | --- | ---------- |
 | V   | V   | V          |
 | V   | F   | V          |
@@ -45,7 +45,7 @@ Una frase puede no ser ni verdadera ni falsa.
 
 - **Condicional ($\rightarrow$)**
 
-| p   | q   | p $\rightarrow$ q |
+| $p$ | $q$ | $p \rightarrow q$ |
 | --- | --- | ----------------- |
 | V   | V   | V                 |
 | V   | F   | F                 |
@@ -54,7 +54,7 @@ Una frase puede no ser ni verdadera ni falsa.
 
 - **Bicondicional ($\leftrightarrow $)**
 
-| p   | q   | p $\leftrightarrow$ q |
+| $p$ | $q$ | $p \leftrightarrow q$ |
 | --- | --- | --------------------- |
 | V   | V   | V                     |
 | V   | F   | F                     |
@@ -80,23 +80,23 @@ Una forma enunciativa (f.e) es una expresión en la cual intervienen variables d
 
 Para saber si una f.e es tautología, contradicción o contingencia, se construye su tabla de verdad y se observa la columna final.
 
-- Ejemplo de tautología: (p $\lor$ $\lnot$p)
+- Ejemplo de tautología: $(p \lor \lnot p)$
 
-| p   | $\lnot$p | p $\lor$ $\lnot$p |
-| --- | -------- | ----------------- |
-| V   | F        | V                 |
-| F   | V        | V                 |
+| $p$ | $\lnot p$ | $p \lor \lnot p$ |
+| --- | --------- | ---------------- |
+| V   | F         | V                |
+| F   | V         | V                |
 
-- Ejemplo de contradicción: (p $\land$ $\lnot$p)
+- Ejemplo de contradicción: $(p \land \lnot p)$
 
-| p   | $\lnot$p | p $\land$ $\lnot$p |
-| --- | -------- | ------------------ |
-| V   | F        | F                  |
-| F   | V        | F                  |
+| $p$ | $\lnot p$ | $p \land \lnot p$ |
+| --- | --------- | ----------------- |
+| V   | F         | F                 |
+| F   | V         | F                 |
 
-- Ejemplo de contingencia: (p $\land$ q)
+- Ejemplo de contingencia: $(p \land q)$
 
-| p   | q   | p $\land$ q |
+| $p$ | $q$ | $p \land q$ |
 | --- | --- | ----------- |
 | V   | V   | V           |
 | V   | F   | F           |
@@ -107,9 +107,9 @@ Para saber si una f.e es tautología, contradicción o contingencia, se construy
 
 - Sean $A$ y $B$ dos f.e.
 - $A$ **implica lógicamente** a $B$ si $(A \rightarrow B)$ es una tautología.
-  - Se denota ($A \Rightarrow B$)
+  - Se denota $(A \Rightarrow B)$
 - $A$ y $B$ son **lógicamente equivalentes** si $(A \leftrightarrow B)$ es una tautología.
-  - Se denota ($A \Leftrightarrow B$)
+  - Se denota $(A \Leftrightarrow B)$
   - Ejemplo: $(p \land p) \Leftrightarrow p$
 
 ## Leyes de De Morgan
