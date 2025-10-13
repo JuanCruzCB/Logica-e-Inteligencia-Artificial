@@ -222,7 +222,104 @@ donde $A_1, A_2, \ldots, A_n$ son las **premisas** y $A$ es la **conclusión**.
 
 # Capítulo 2 Hamilton (Práctica 3)
 
-## Demostración sintáctica
+## Definición del sistema formal $L$
+
+- El sistema formal $L$ del cálculo de enunciados se define mediante 4 componentes:
+
+1. **Alfabeto infinito de símbolos**:
+   - Variables de enunciado: $p_1, p_2, p_3, ...$
+   - Conectivas lógicas: $\lnot, \rightarrow$
+   - Paréntesis: $(, )$
+2. **Conjunto de fbfs**:
+   - $p_i$ es una fbf $\forall i \ge 1$
+   - Si $A$ y $B$ son fbfs, entonces $(\lnot A)$ y $(A \rightarrow B)$ son fbfs.
+3. **Esquemas de axiomas ($A, B, C$ son cualquier fbf)**:
+   - $L1$: $(A \rightarrow (B \rightarrow A))$
+   - $L2$: $((A \rightarrow (B \rightarrow C)) \rightarrow ((A \rightarrow B) \rightarrow (A \rightarrow C)))$
+   - $L3$: $((\lnot A \rightarrow (\lnot B)) \rightarrow (B \rightarrow A))$
+4. **Reglas de inferencia o deducción**: En $L$ solo se tiene una regla llamada Modus Ponens (MP).
+
+   - Sean $A$ y $B$ dos fbfs arbitrarias.
+   - De $A$ y $A \rightarrow B$ se deduce como consecuencia directa $B$.
+
+## Demostración en $L$
+
+- Una demostración en $L$ es una secuencia finita de fbfs $A_1, A_2, \ldots, A_n$ donde cada $A_i$ es un **axioma** (una instancia de $L1$, $L2$ o $L3$), o se **deduce por MP** de dos fbfs anteriores en la secuencia.
+- Una tal demostración se dice que es una demostración de $A_n$ en $L$.
+- También se dice que $A_n$ es un **teorema** de $L$.
+
+## Deducción a partir de Gamma ($\Gamma$)
+
+- Sea $\Gamma$ un conjunto de fbfs de $L$, ya sean axiomas o teoremas o no.
+- Una sucesión finita $A_1, A_2, \ldots, A_n$ de fbfs de $L$ es una **deducción a partir de $\Gamma$** si para todo i $(1 \le i \le n)$ se cumple alguna de las condiciones:
+  - $A_i$ es un **axioma** de $L$.
+  - $A_i \in \Gamma$.
+  - $A_i$ se deduce por MP de dos fbfs anteriores en la secuencia.
+- Intuitivamente, una deducción a partir de $\Gamma$ es una **demostración** en $L$ en la que los miembros de $\Gamma$ se consideran temporalmente como axiomas.
+- El último elemento $A_n$ de una deducción a partir de $\Gamma$ se dice que es deducible a partir de $\Gamma$, o que es una consecuencia directa de $\Gamma$ en $L$.
+- Si una fbf $A$ es el último miembro de una deducción a partir de $\Gamma$, se escribe $\Gamma \vdash_L A$ y se dice que $A$ es derivable a partir de $\Gamma$ en $L$.
+- Todo teorema de $L$ es deducible a partir del conjunto vacío de fbfs, de forma que si $A$ es un teorema de $L$, entonces $\emptyset \vdash_L A$ o abreviadamente $\vdash_L A$.
+- Ejemplo:
+  - $\Gamma$ = $\{A, (B \rightarrow (A \rightarrow C))\}$
+  - (1): $A$ (Hipótesis)
+  - (2): $(B \rightarrow (A \rightarrow C))$ (Hipótesis)
+  - (3): $(A \rightarrow (B \rightarrow A))$ (Instanciación de $L1$)
+  - (4): $(B \rightarrow A)$ (MP entre (1) y (3))
+  - (5): $((B \rightarrow (A \rightarrow C)) \rightarrow ((B \rightarrow A) \rightarrow (B \rightarrow C)))$ (Instanciación de $L2$)
+  - (6): $((B \rightarrow A) \rightarrow (B \rightarrow C))$ (MP entre (2) y (5))
+  - (7): $(B \rightarrow C)$ (MP entre (4) y (6))
+  - Por lo tanto, para fbfs $A, B, C$ cualesquiera: $$\{A, (B \rightarrow (A \rightarrow C))\} \vdash_L (B \rightarrow C)$$
+
+## Metateorema de la deducción (MTD)
+
+- Sea $\Gamma$ un conjunto de fbfs de $L$ potencialmente vacío y sean $A$ y $B$ dos fbfs cualesquiera.
+- Si $\Gamma \cup \{A\} \vdash_L B$, entonces $\Gamma \vdash_L (A \rightarrow B)$.
+- Este metateorema es recíproco:
+- Si $\Gamma \vdash_L (A \rightarrow B)$, entonces $\Gamma \cup \{A\} \vdash_L B$.
+
+## Silogismo hipotético (SH)
+
+- Sean $A, B$ y $C$ tres fbfs cualesquiera.
+- Si $\Gamma = \{(A \rightarrow B), (B \rightarrow C)\}$, entonces $\Gamma \vdash_L (A \rightarrow C)$.
+
+## Valoración de $L$
+
+- Una valoración de $L$ es una función $v$ cuyo dominio es el conjunto de todas las fbfs de $L$ y cuyo rango es el conjunto $\{V, F\}$, tal que para toda fbf $A$ y $B$:
+  - $v(A) \neq v(\lnot A)$
+  - $v(A \rightarrow B) = F$ si y sólo si $v(A) = V$ y $v(B) = F$
+
+## Tautología en $L$
+
+- Una fbf $A$ de $L$ es una **tautología** si para toda valoración $v$ de $L$, $v(A) = V$.
+- **Además, $A$ es un teorema si y sólo si $A$ es una tautología. Por lo tanto, todo teorema de $L$ es una tautología**.
+
+## Extensión de $L$
+
+- Una extensión de $L$ es un sistema formal $L'$ que se obtiene de $L$ ampliando o alterando el conjunto de axiomas de manera que todos los teoremas de $L$ sigan siendo teoremas en $L'$.
+- Es posible que $L'$ introduzca nuevos teoremas que no son teoremas de $L$.
+- Es posible que un sistema formal $L'$ sea una extensión de $L$ sin tener axiomas en común con $L$.
+- Si se extiende demasiado un sistema formal, se puede llegar a un sistema en el que cualquier fbf sea un teorema, lo cual es indeseable.
+
+## Consistencia
+
+- **El sistema formal $L$ es consistente**.
+- Una extensión $L'$ de $L$ es **consistente** si no existe ninguna fbf $A$ de $L$ tal que tanto $A$ como $\lnot A$ sean teoremas de $L'$.
+- Además, una extensión $L'$ de $L$ es consistente si y sólo si existe alguna fbf $A$ de $L$ que no es teorema de $L'$.
+
+## Completitud
+
+- **El sistema formal $L$ no es completo**.
+- Una extensión $L'$ de $L$ es **completa** si para toda fbf $A$ de $L$, $A$ o $\lnot A$ es un teorema de $L'$.
+- Toda extensión inconsistente de $L$ es completa, pero no toda extensión consistente de $L$ es completa.
+
+## Decidibilidad
+
+- **El sistema formal $L$ es decidible**.
+- Un sistema formal es decidible si existe un método efectivo para decidir si cada fbf del sistema es un teorema o no.
+
+## Teorema de adecuación de $L$
+
+- Si $A$ es una fbf de $L$ y $A$ es una tautología, entonces $A$ es un teorema de $L$: $\vdash_L A$.
 
 ---
 
