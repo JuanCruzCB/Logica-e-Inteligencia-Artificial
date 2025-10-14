@@ -534,5 +534,7 @@ La L.H tiene una serie de axiomas y reglas que permiten razonar sobre la correcc
 - La lógica de Hoare permite razonar sobre la **correctitud parcial** y la **correctitud total** de los programas.
 - **Correctitud parcial**: Si la precondición $P$ es verdadera antes de ejecutar el programa $S$, y si $S$ termina, entonces la postcondición $Q$ será verdadera después de ejecutar $S$.
   - **No se garantiza que $S$ termina**.
+  - Se denota como $\{P\} \; S \; \{Q\}$.
 - **Correctitud total**: Si la precondición $P$ es verdadera antes de ejecutar el programa $S$, entonces $S$ siempre terminará y la postcondición $Q$ será verdadera después de ejecutar $S$.
   - **Se garantiza que $S$ termina**.
+  - Se denota como $<P> \; S \; <Q>$.
