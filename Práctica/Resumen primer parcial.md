@@ -483,6 +483,56 @@ Intuitivamente, una valoración es una regla que asigna a cada término de $\mat
 
 ---
 
-# Capítulo 4 Hamilton (Práctica 6)
+# Capítulo 4 Hamilton y Capítulo 4 LPI (Práctica 6)
 
 ## Lógica de Hoare
+
+### Definición
+
+- La lógica de Hoare es un sistema formal para razonar sobre la corrección de los programas.
+- Está basada en la lógica de predicados de primer orden y utiliza un conjunto de axiomas y reglas para derivar propiedades sobre programas.
+- Se usa principalmente para verificar que un programa cumple con ciertas especificaciones antes y después de su ejecución.
+- Su componente principal es la **terna de Hoare**, que se define como $$\{P\} \; S \; \{Q\}$$ donde:
+
+- $P$ es la **precondición**: una fbf que describe el estado del sistema ANTES de ejecutar el programa $S$.
+- $S$ es el **programa**: una secuencia de instrucciones que se ejecutan.
+- $Q$ es la **postcondición**: una fbf que describe el estado del sistema DESPUÉS de ejecutar el programa $S$.
+
+### Axiomas y reglas
+
+La L.H tiene una serie de axiomas y reglas que permiten razonar sobre la corrección de los programas. Algunos de los axiomas más importantes son:
+
+1. **Axioma de asignación**:
+   - $\{p(e)\} \; x := e \; \{p(x)\}$
+   - Si luego de $x := e$ vale $p$ para $x$, entonces antes de $x := e$ valía $p$ para $e$.
+2. **Regla de secuencia (SEC)**:
+   - $\{P\} \; S_1 \; \{Q\}$
+   - $\{Q\} \; S_2 \; \{R\}$
+   - Entonces $\{P\} \; S_1; S_2 \; \{R\}$
+   - El predicado $Q$ actúa como nexo y luego se descarta, no se propaga.
+3. **Regla del condicional (COND)**:
+   - $\{P \land B\} \; S_1 \; \{Q\}$
+   - $\{P \land \lnot B\} \; S_2 \; \{Q\}$
+   - Entonces $\{P\} \; \text{if } B \text{ then } S_1 \text{ else } S_2 \; \{Q\}$
+   - Formula un modo de verificar una selección condicional fijando un único punto de entrada y un único punto de salida, correspondientes a $P$ y $Q$, respectivamente.
+4. **Regla de la repetición (REP)**:
+   - $\{P \land B\} \; S \; \{P\}$
+   - $\{P \land B \land t = Z\} \; S \; \{t < Z\}$
+   - $P \rightarrow t \geq 0$
+   - Entonces $\{P\} \; while \; B \; do \; S \; \{P \land \lnot B\}$
+   - $P$ vale antes y después de toda iteración (invariante)
+   - $t$ decrece después de toda iteración (variante)
+5. **Regla de la consecuencia (CONS)**:
+   - $R \rightarrow P$
+   - $\{P\} \; S \; \{Q\}$
+   - $Q \rightarrow S$
+   - Entonces $\{R\} \; S \; \{S\}$
+   - Permite reforzar precondiciones y debilitar postcondiciones.
+
+### Correctitud parcial vs total
+
+- La lógica de Hoare permite razonar sobre la **correctitud parcial** y la **correctitud total** de los programas.
+- **Correctitud parcial**: Si la precondición $P$ es verdadera antes de ejecutar el programa $S$, y si $S$ termina, entonces la postcondición $Q$ será verdadera después de ejecutar $S$.
+  - **No se garantiza que $S$ termina**.
+- **Correctitud total**: Si la precondición $P$ es verdadera antes de ejecutar el programa $S$, entonces $S$ siempre terminará y la postcondición $Q$ será verdadera después de ejecutar $S$.
+  - **Se garantiza que $S$ termina**.
