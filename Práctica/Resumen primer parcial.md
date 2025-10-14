@@ -224,7 +224,7 @@ donde $A_1, A_2, \ldots, A_n$ son las **premisas** y $A$ es la **conclusión**.
 
 ## Definición del sistema formal $L$
 
-- El sistema formal $L$ del cálculo de enunciados se define mediante 4 componentes:
+El sistema formal $L$ del cálculo de enunciados se define mediante 4 componentes:
 
 1. **Alfabeto infinito de símbolos**:
    - Variables de enunciado: $p_1, p_2, p_3, ...$
@@ -325,13 +325,161 @@ donde $A_1, A_2, \ldots, A_n$ son las **premisas** y $A$ es la **conclusión**.
 
 # Capítulo 3 Hamilton (Prácticas 4 y 5)
 
-## Representación simbólica LO1
+## Sujeto y predicado
 
-## Equivalencia entre $\forall $ y $\exists $
+- El **sujeto** es el objeto del que se afirma algo.
+  - Se representa con letras minúsculas, por ejemplo: $x$, $y$, $z$.
+- El **predicado** es lo que se afirma de ese sujeto.
+  - Es verdadero o falso.
+  - Se representa con letras mayúsculas seguidas de paréntesis, por ejemplo: $P(x)$, $Q(y)$, $R(z)$.
+
+## Cuantificadores
+
+- **Cuantificador universal**: $\forall x P(x)$ se lee "para todo objeto $x$ del universo, $P(x)$".
+  - Es verdadero si $P(x)$ es verdadero para todo valor de $x$.
+  - Es falso si existe algún valor de $x$ para el cual $P(x)$ es falso.
+  - A priori, no se supone nada del dominio de $x$, por eso se dice "objeto del universo".
+- **Cuantificador existencial**: $\exists x P(x)$ se lee "existe al menos un objeto $x$ del universo tal que $P(x)$".
+  - Es verdadero si existe al menos un valor de $x$ para el cual $P(x)$ es verdadero.
+  - Es falso si $P(x)$ es falso para todo valor de $x$.
+  - A priori, no se supone nada del dominio de $x$, por eso se dice "objeto del universo".
+
+## Equivalencias entre $\forall$ y $\exists$
+
+- $\exists x P(x) \Leftrightarrow \lnot \forall x \lnot P(x)$
+  - Decir "existe al menos un $x$ que cumple $P(x)$" es equivalente a decir "no es cierto que $P(x)$ no se cumple para ningún x".
+- $\forall x P(x) \Leftrightarrow \lnot \exists x \lnot P(x)$
+  - Decir "para todo $x$ se cumple $P(x)$" es equivalente a decir "no es cierto que existe al menos un $x$ que no cumple $P(x)$".
+- $\lnot(\forall x)(P(x) \rightarrow Q(x)) \Leftrightarrow (\exists x)(P(x) \land \lnot Q(x))$
+  - Decir "no es cierto que para todo $x$, si $P(x)$ entonces $Q(x)$" es equivalente a decir "existe al menos un $x$ tal que $P(x)$ y no $Q(x)$".
+
+## Definición de sistema de primer orden $\mathscr{L}$ (LO1)
+
+Un sistema de primer orden $\mathscr{L}$ (LO1) se define mediante 7 componentes:
+
+1. **Un conjunto infinito de variables**:
+   - $V = \{x_1, x_2, x_3, ...\}$
+2. **Un conjunto finito de constantes**:
+   - $C = \{c_1, c_2, c_3, c_n\}$
+   - $C$ puede ser $\emptyset$
+3. **Un conjunto finito de predicados**:
+   - $P = \{P_1, P_2, P_3, P_n\}$
+   - Cada predicado tiene un número fijo de argumentos (su aridad) $1..n$.
+   - $P$ no puede ser $\emptyset$
+4. **Un conjunto finito de funciones**:
+   - $F = \{f_1, f_2, f_3, f_n\}$
+   - Cada función tiene un número fijo de argumentos (su aridad) $1..n$.
+   - $F$ puede ser $\emptyset$
+5. **Símbolos de puntuación**:
+   - $(,)$ y $,$
+6. **Conectivas lógicas**:
+   - $\{\lnot, \rightarrow\}$
+7. **Cuantificador universal**:
+   - $\forall$
+
+## Término de $\mathscr{L}$
+
+- Un término de $\mathscr{L}$ es cualquier expresión que se interpreta como un objeto, es decir, las cosas a las que se aplican las funciones, las cosas que tienen propiedades, las cosas acerca de las cuales se hacen afirmaciones.
+- Se define inductivamente mediante las reglas:
+  1. Toda variable es un término.
+  2. Toda constante es un término.
+  3. Si $f$ es una función de aridad $n$ y $t_1, t_2, \ldots, t_n$ son términos, entonces $f(t_1, t_2, \ldots, t_n)$ es un término.
+
+## Fórmula bien formada (fbf) de $\mathscr{L}$
+
+- Una fórmula atómica de $\mathscr{L}$ es una expresión de la forma $P(t_1, t_2, \ldots, t_n)$ donde $P$ es un predicado de aridad $n$ y $t_1, t_2, \ldots, t_n$ son términos.
+- Una fórmula bien formada (fbf) de $\mathscr{L}$ se define por:
+  - Toda fórmula atómica es una fbf.
+  - Si $A$ y $B$ son fbf, entonces $(\lnot A)$ y $(A \rightarrow B)$ son fbf y $\forall x_i A$ es fbf siendo $x_i$ una variable cualquiera.
+
+## Radio de acción de un cuantificador
+
+- El radio de acción de un cuantificador es la fbf que le sigue inmediatamente a su derecha.
+- Ejemplo 1: $\forall x (P(x) \rightarrow Q(x))$
+  - El radio de acción del cuantificador $\forall x$ es la fbf $(P(x) \rightarrow Q(x))$.
+- Ejemplo 2: $\forall x (P(x) \rightarrow \forall y Q(x, y))$
+  - El radio de acción del cuantificador $\forall x$ es la fbf $(P(x) \rightarrow \forall y Q(x, y))$ y el radio de acción del cuantificador $\forall y$ es la fbf $Q(x, y)$.
 
 ## Variables ligadas vs libres
 
-## Fórmulas contradictorias, satisfactibles, verdaderas, lógicamente válidas
+- Una intervención de la variable $x_i$ en una fbf $A$ se dice que es **ligada** si está dentro del radio de acción de un cuantificador que la incluye. Si una intervención de $x_i$ no es ligada, se dice que es **libre**.
+- Ejemplo 1: $\forall x (P(x) \rightarrow Q(x))$
+  - La variable $x$ está ligada en $P(x)$ y en $Q(x)$.
+- Ejemplo 2: $\exists y (P(x) \land Q(y))$
+  - La variable $y$ está ligada en $Q(y)$, mientras que $x$ está libre en $P(x)$.
+
+## Términos ligados vs libres
+
+- Sea $A$ una fbf de $\mathscr{L}$.
+- Un término $t$ está **libre** para $x_i$ en $A$ si $x_i$ no aparece libre en $A$ dentro del radio de acción de un $\forall x_j$ siendo $x_j$ una de las variables que intervienen en $t$.
+- Esto implica que $t$ puede sustituirse en el lugar de cualquier intervención libre de $x_i$ en $A$ sin que aparezcan interacciones con cuantificadores de $A$.
+
+## Interpretación
+
+Una interpretación $I$ para $\mathscr{L}$ se define mediante 4 componentes:
+
+1. Un conjunto **no vacío** $D_I$, llamado dominio de la interpretación.
+2. Una colección de elementos distinguidos (constantes): $\bar a_i$.
+3. Una colección de funciones definidas sobre $D_I$: $\bar f_i^n$.
+4. Una colección de relaciones (predicados) definidas sobre $D_I$: $\bar A_i^n$.
+
+En este sentido, la verdad o falsedad de una fbf depende de la interpretación que se le dé.
+
+## Valoración en $I$
+
+Se llama valoración en $I$ a toda función $v$ del conjunto de términos de $\mathscr{L}$ en el conjunto $D_I$ que cumple:
+
+1. $v(a_i) = \bar a_i$ para toda constante $a_i$ de $\mathscr{L}$.
+2. $v(f_i^n(t_1, t_2, \ldots, t_n)) = \bar f_i^n(v(t_1), v(t_2), \ldots, v(t_n)))$ siendo $f_i^n$ cualquier letra de función de $\mathscr{L}$ y $t_1, t_2, \ldots, t_n$ términos cualesquiera de $\mathscr{L}$.
+
+Intuitivamente, una valoración es una regla que asigna a cada término de $\mathscr{L}$ un elemento del dominio $D_I$.
+
+## I-equivalencias
+
+- Dos valoraciones $v$ y $w$ son i-equivalentes si $v(x_i) = w(x_j)$ para todo $j \neq i$
+
+## Satisfacción de una valoración
+
+- Sea $A$ una fbf de $\mathscr{L}$ y sea $I$ una interpretación para $\mathscr{L}$.
+- Una valoración $v$ en $I$ **satisface** a $A$ si puede demostrarse inductivamente que lo hace, a partir de cuatro condiciones:
+  - $v$ satisface la fórmula atómica $A_j^n(t_1, t_2, \ldots, t_n)$ si $\bar A_j^n(v(t_1), v(t_2), \ldots, v(t_n))$ se verifica en $D_I$.
+  - $v$ satisface $(\lnot B)$ si $v$ no satisface $B$.
+  - $v$ satisface $(B \rightarrow C)$ si $v$ satisface $\lnot B$ o $v$ satisface $C$.
+  - $v$ satisface $(\forall x_i) B$ si toda valoración $w$ que sea i-equivalente a $v$ satisface $B$.
+
+## Fórmulas verdaderas, contradictorias, satisfactibles, lógicamente válidas
+
+### Fórmula verdadera vs falsa
+
+- Sea $A$ una fbf de $\mathscr{L}$ y sea $I$ una interpretación para $\mathscr{L}$.
+- $A$ es **verdadera** en $I$ si toda valoración $v$ en $I$ satisface a $A$.
+  - Se denota $I \models A$.
+- $A$ es **falsa** en $I$ si ninguna valoración $v$ en $I$ satisface a $A$.
+  - Se denota $I \not\models A$.
+- $A$ no es **ni verdadera ni falsa** en $I$ si alguna valoración $v$ en $I$ satisface a $A$ y otra no la satisface.
+- Es imposible que una fbf sea verdadera y falsa a la vez en una misma interpretación.
+- Para ninguna fbf $A$ puede ocurrir que tanto $A$ como $\lnot A$ sean verdaderas en una misma interpretación.
+- Si $A$ y $A \rightarrow B$ son verdaderas en una interpretación $I$, entonces $B$ es verdadera en $I$ (Modus Ponens).
+
+### Fórmula satisfactible
+
+- Una fbf $A$ de $\mathscr{L}$ es **satisfactible** si existe al menos una interpretación $I$ para $\mathscr{L}$ en la que $A$ es verdadera.
+
+### Fórmula contradictoria
+
+- Una fbf $A$ de $\mathscr{L}$ es una **contradicción** si para toda interpretación $I$ para $\mathscr{L}$, $A$ es falsa en $I$.
+
+### Fórmula lógicamente válida
+
+- Una fbf $A$ de $\mathscr{L}$ es **lógicamente válida** si para toda interpretación $I$ para $\mathscr{L}$, $A$ es verdadera en $I$.
+  - Se denota $\models A$.
+- Si $A$ y $A \rightarrow B$ son lógicamente válidas, entonces $B$ es lógicamente válida (Modus Ponens).
+- Si $A$ es lógicamente válida, entonces $(\forall x_i) A$ también lo es, cualquiera sea $x_i$.
+
+## Tautologías
+
+- Una fbf $A$ de $\mathscr{L}$ es una **tautología** si proviene por sustitución de una tautología del sistema formal $L$.
+- Una fbf $A$ de $\mathscr{L}$ que sea una tautología es verdadera en cualquier interpretación para $\mathscr{L}$.
 
 ---
 
