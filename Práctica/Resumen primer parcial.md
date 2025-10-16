@@ -12,14 +12,14 @@ Una frase puede no ser ni verdadera ni falsa.
 
 ## Tablas de verdad básicas
 
-### Negación ($\lnot$)
+### Negación $(\lnot)$
 
 | $p$ | $\lnot p$ |
 | --- | --------- |
 | V   | F         |
 | F   | V         |
 
-### Conjunción ($\land$)
+### Conjunción $(\land)$
 
 - Es conmutativa: (p $\land$ q) $\Leftrightarrow$ (q $\land$ p)
 - Es asociativa: ((p $\land$ q) $\land$ r) $\Leftrightarrow$ (p $\land$ (q $\land$ r))
@@ -32,7 +32,7 @@ Una frase puede no ser ni verdadera ni falsa.
 | F   | V   | F           |
 | F   | F   | F           |
 
-### Disyunción ($\lor$)
+### Disyunción $(\lor)$
 
 - Es conmutativa: (p $\lor$ q) $\Leftrightarrow$ (q $\lor$ p)
 - Es asociativa: ((p $\lor$ q) $\lor$ r) $\Leftrightarrow$ (p $\lor$ (q $\lor$ r))
@@ -45,7 +45,7 @@ Una frase puede no ser ni verdadera ni falsa.
 | F   | V   | V          |
 | F   | F   | F          |
 
-### Condicional ($\rightarrow$)
+### Condicional $(\rightarrow)$
 
 | $p$ | $q$ | $p \rightarrow q$ |
 | --- | --- | ----------------- |
@@ -54,7 +54,7 @@ Una frase puede no ser ni verdadera ni falsa.
 | F   | V   | V                 |
 | F   | F   | V                 |
 
-### Bicondicional ($\leftrightarrow $)
+### Bicondicional $(\leftrightarrow)$
 
 | $p$ | $q$ | $p \leftrightarrow q$ |
 | --- | --- | --------------------- |
@@ -83,41 +83,58 @@ Para saber si una f.e es tautología, contradicción o contingencia, se construy
 - **Tautología**: f.e que toma el valor de verdad $V$ bajo cada una de las posibles asignaciones de valores de verdad a sus variables de enunciado.
 - Ejemplo: $(p \lor \lnot p)$
 
-| $p$ | $\lnot p$ | $p \lor \lnot p$ |
-| --- | --------- | ---------------- |
-| V   | F         | V                |
-| F   | V         | V                |
+  | $p$ | $\lnot p$ | $p \lor \lnot p$ |
+  | --- | --------- | ---------------- |
+  | V   | F         | V                |
+  | F   | V         | V                |
 
 ### Contradicción
 
 - **Contradicción**: f.e que toma el valor de verdad $F$ bajo cada una de las posibles asignaciones de valores de verdad a sus variables de enunciado.
 - Ejemplo: $(p \land \lnot p)$
 
-| $p$ | $\lnot p$ | $p \land \lnot p$ |
-| --- | --------- | ----------------- |
-| V   | F         | F                 |
-| F   | V         | F                 |
+  | $p$ | $\lnot p$ | $p \land \lnot p$ |
+  | --- | --------- | ----------------- |
+  | V   | F         | F                 |
+  | F   | V         | F                 |
 
 ### Contingencia
 
 - **Contingencia**: f.e que no es ni tautología ni contradicción.
 - Ejemplo: $(p \land q)$
 
-| $p$ | $q$ | $p \land q$ |
-| --- | --- | ----------- |
-| V   | V   | V           |
-| V   | F   | F           |
-| F   | V   | F           |
-| F   | F   | F           |
+  | $p$ | $q$ | $p \land q$ |
+  | --- | --- | ----------- |
+  | V   | V   | V           |
+  | V   | F   | F           |
+  | F   | V   | F           |
+  | F   | F   | F           |
 
-## Implicación lógica y equivalencia lógica
+## Implicación lógica $(\Rightarrow)$
 
 - Sean $A$ y $B$ dos f.e.
 - $A$ **implica lógicamente** a $B$ si $(A \rightarrow B)$ es una tautología.
+
   - Se denota $(A \Rightarrow B)$
+  - Ejemplo: $p \Rightarrow p$ porque $(p \rightarrow p)$ es una tautología:
+
+  | $p$ | $p \rightarrow p$ |
+  | --- | ----------------- |
+  | V   | V                 |
+  | F   | V                 |
+
+## Equivalencia lógica $(\Leftrightarrow)$
+
+- Sean $A$ y $B$ dos f.e.
 - $A$ y $B$ son **lógicamente equivalentes** si $(A \leftrightarrow B)$ es una tautología.
+
   - Se denota $(A \Leftrightarrow B)$
-  - Ejemplo: $(p \land p) \Leftrightarrow p$
+  - Ejemplo: $(p \land p) \Leftrightarrow p$ porque $((p \land p) \leftrightarrow p)$ es una tautología:
+
+  | $p$ | $p \land p$ | $(p \land p) \leftrightarrow p$ |
+  | --- | ----------- | ------------------------------- |
+  | V   | V           | V                               |
+  | F   | F           | V                               |
 
 ## Leyes de De Morgan
 
@@ -150,7 +167,7 @@ Para saber si una f.e es tautología, contradicción o contingencia, se construy
 
 ### Definición
 
-- Una forma argumentativa (f.a) es una sucesión finita de formas enunciativas llamadas **premisas**, y una forma enunciativa llamada **conclusión**:
+Una forma argumentativa (f.a) es una sucesión finita de formas enunciativas llamadas **premisas**, y una forma enunciativa llamada **conclusión**:
 
 $$ A_1, A_2, \ldots, A_n \therefore A $$
 
