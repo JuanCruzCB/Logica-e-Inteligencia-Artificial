@@ -21,10 +21,6 @@ Una frase puede no ser ni verdadera ni falsa.
 
 ### Conjunción $(\land)$
 
-- Es conmutativa: (p $\land$ q) $\Leftrightarrow$ (q $\land$ p)
-- Es asociativa: ((p $\land$ q) $\land$ r) $\Leftrightarrow$ (p $\land$ (q $\land$ r))
-- Es distributiva respecto a la disyunción: (p $\land$ (q $\lor$ r)) $\Leftrightarrow$ ((p $\land$ q) $\lor$ (p $\land$ r))
-
 | $p$ | $q$ | $p \land q$ |
 | --- | --- | ----------- |
 | V   | V   | V           |
@@ -33,10 +29,6 @@ Una frase puede no ser ni verdadera ni falsa.
 | F   | F   | F           |
 
 ### Disyunción $(\lor)$
-
-- Es conmutativa: (p $\lor$ q) $\Leftrightarrow$ (q $\lor$ p)
-- Es asociativa: ((p $\lor$ q) $\lor$ r) $\Leftrightarrow$ (p $\lor$ (q $\lor$ r))
-- Es distributiva respecto a la conjunción: (p $\lor$ (q $\land$ r)) $\Leftrightarrow$ ((p $\lor$ q) $\land$ (p $\lor$ r))
 
 | $p$ | $q$ | $p \lor q$ |
 | --- | --- | ---------- |
@@ -63,7 +55,7 @@ Una frase puede no ser ni verdadera ni falsa.
 | F   | V   | F                     |
 | F   | F   | V                     |
 
-## Forma enunciativa
+## Forma enunciativa (1.2)
 
 Una forma enunciativa (f.e) es una expresión en la cual intervienen variables de enunciado (p, q, r, ...) y conectivos lógicos, que pueda formarse utilizando las reglas:
 
@@ -73,8 +65,9 @@ Una forma enunciativa (f.e) es una expresión en la cual intervienen variables d
 ## Tablas de verdad en general
 
 - Si una f.e tiene $n$ variables de enunciado, su tabla de verdad tendrá $2^n$ filas.
+- Ejemplo: $((p \land q) \rightarrow \lnot r)$ tiene 3 variables de enunciado $(p, q, r)$, por lo que su tabla de verdad tendrá $2^3 = 8$ filas.
 
-## Tautología, contradicción y contingencia
+## Tautología, contradicción y contingencia (1.5)
 
 Para saber si una f.e es tautología, contradicción o contingencia, se construye su tabla de verdad y se observa la columna final.
 
@@ -110,7 +103,7 @@ Para saber si una f.e es tautología, contradicción o contingencia, se construy
   | F   | V   | F           |
   | F   | F   | F           |
 
-## Implicación lógica $(\Rightarrow)$
+## Implicación lógica $(\Rightarrow)$ (1.7)
 
 - Sean $A$ y $B$ dos f.e.
 - $A$ **implica lógicamente** a $B$ si $(A \rightarrow B)$ es una tautología.
@@ -123,7 +116,9 @@ Para saber si una f.e es tautología, contradicción o contingencia, se construy
   | V   | V                 |
   | F   | V                 |
 
-## Equivalencia lógica $(\Leftrightarrow)$
+## Equivalencia lógica $(\Leftrightarrow)$ (1.7)
+
+### Definición
 
 - Sean $A$ y $B$ dos f.e.
 - $A$ y $B$ son **lógicamente equivalentes** si $(A \leftrightarrow B)$ es una tautología.
@@ -136,23 +131,100 @@ Para saber si una f.e es tautología, contradicción o contingencia, se construy
   | V   | V           | V                               |
   | F   | F           | V                               |
 
-## Leyes de De Morgan
+### Leyes de De Morgan (1.8)
 
-- Sean $A$ y $B$ dos f.e.
 - $\lnot (A \land B) \Leftrightarrow (\lnot A \lor \lnot B)$
+  - Se generaliza a n conjunciones: $\lnot (A_1 \land A_2 \land ... \land A_n) \Leftrightarrow (\lnot A_1 \lor \lnot A_2 \lor ... \lor \lnot A_n)$
 - $\lnot (A \lor B) \Leftrightarrow (\lnot A \land \lnot B)$
+  - Se generaliza a n disyunciones: $\lnot (A_1 \lor A_2 \lor ... \lor A_n) \Leftrightarrow (\lnot A_1 \land \lnot A_2 \land ... \land \lnot A_n)$
+
+### Leyes de absorción
+
+- $p \land \lnot p \Leftrightarrow p$
+- $p \lor p \Leftrightarrow p$
+
+### Leyes conmutativas
+
+- **De la conjunción**: $(p \land q) \Leftrightarrow (q \land p)$
+- **De la disyunción**: $(p \lor q) \Leftrightarrow (q \lor p)$
+
+### Leyes asociativas
+
+- **De la conjunción**: $((p \land q) \land r) \Leftrightarrow (p \land (q \land r))$
+- **De la disyunción**: $((p \lor q) \lor r) \Leftrightarrow (p \lor (q \lor r))$
+
+### Leyes distributivas
+
+- **De la conjunción**: $(p \lor (q \land r)) \Leftrightarrow ((p \lor q) \land (p \lor r))$
+- **De la disyunción**: $(p \land (q \lor r)) \Leftrightarrow ((p \land q) \lor (p \land r))$
+
+### Más equivalencias
+
+- **Ley de doble negación**: $\lnot (\lnot p) \Leftrightarrow p$
+- **Condicional**: $(p \rightarrow q) \Leftrightarrow \lnot p \lor q$
+- **Bicondicional**: $(p \leftrightarrow q) \Leftrightarrow ((p \rightarrow q) \land (q \rightarrow p))$
+- **Conjunción**: $(p \land q) \Leftrightarrow \lnot (p \rightarrow \lnot q)$
+- **Disyunción**: $(p \lor q) \Leftrightarrow \lnot p \rightarrow q$
+
+## Satisfactibilidad
+
+### De una forma enunciativa
+
+- Una f.e es **satisfactible** si y solo si existe alguna asignación de valores de verdad a sus variables de enunciado que haga que la f.e tome el valor de verdad $V$.
+- Intuitivamente, una f.e es satisfactible si es verdadera en al menos una de las filas de la tabla de verdad.
+- Trivialmente, si una f.e no es satisfactible, entonces es una contradicción.
+  - Si es satisfactible, por otro lado, puede ser tautología o contingencia.
+- Ejemplo 1:
+  - La f.e $(p \land q)$ es satisfactible porque existe una asignación de valores de verdad a sus variables de enunciado que hace que la f.e tome el valor de verdad $V$:
+    - Si $p = V$ y $q = V$, entonces $(p \land q) = V$.
+- Ejemplo 2:
+  - La f.e $(p \land \lnot p)$ no es satisfactible porque no existe ninguna asignación de valores de verdad a sus variables de enunciado que haga que la f.e tome el valor de verdad $V$:
+    - Si $p = V$, entonces $(p \land \lnot p) = F$.
+    - Si $p = F$, entonces $(p \land \lnot p) = F$.
+
+### De un conjunto $\Gamma$ de formas enunciativas
+
+- Un conjunto $\Gamma$ de formas enunciativas es **satisfactible** si y sólo si existe al menos una asignación de valores de verdad para las letras de proposición que hace verdadera a TODAS las f.e de $\Gamma$.
+- Ejemplo 1:
+  - El conjunto $\Gamma = \{(p \lor q), (\lnot p \lor r)\}$ es satisfactible porque existe una asignación de valores de verdad para las letras de proposición que hace verdaderas a TODAS las f.e de $\Gamma$:
+    - Si $p = F$, $q = V$ y $r = V$, entonces $(p \lor q) = V$ y $(\lnot p \lor r) = V$.
+- Ejemplo 2:
+  - El conjunto $\Gamma = \{(p), (\lnot p)\}$ no es satisfactible porque no existe ninguna asignación de valores de verdad para las letras de proposición que haga verdaderas a TODAS las f.e de $\Gamma$:
+    - Si $p = V$, entonces $(p) = V$ pero $(\lnot p) = F$.
+    - Si $p = F$, entonces $(p) = F$ pero $(\lnot p) = V$.
 
 ## Formas normales
 
-### Forma normal disyuntiva (FND)
+### Forma normal disyuntiva (FND) (1.20)
 
 - Toda f.e que **no sea una contradicción** es lógicamente equivalente a una f.e restringida de la forma: $$(\bigvee_{i=1}^{m} (\bigwedge_{j=1}^{n} Q_{ij}))$$ siendo $Q_{ij}$ una variable de enunciado o la negación de una variable de enunciado.
+- Se trata de una disyunción de conjunciones.
+- Ejemplo:
+  - A = $(p \lor \lnot q) \rightarrow (\lnot p \lor r)$
+  - Transformándola a FND:
+    - Paso 1 (Eliminar condicionales): $\lnot (p \lor \lnot q) \lor (\lnot p \lor r)$
+    - Paso 2 (Leyes de De Morgan): $(\lnot p \land q) \lor (\lnot p \lor r)$
+    - Paso 3 (Asociación): $(\lnot p \land q) \lor \lnot p \lor r$
 
-### Forma normal conjuntiva (FNC)
+### Forma normal conjuntiva (FNC) (1.21)
 
 - Toda f.e que **no sea una tautología** es lógicamente equivalente a una f.e restringida de la forma: $$(\bigwedge_{i=1}^{m} (\bigvee_{j=1}^{n} Q_{ij}))$$ siendo $Q_{ij}$ una variable de enunciado o la negación de una variable de enunciado.
+- Se trata de una conjunción de disyunciones.
+- **NOTA**: Si una de las cláusulas de una fbf que está en FNC es una tautología, entonces puede ser eliminada sin alterar la equivalencia lógica de la fbf.
+- Ejemplo:
+  - A = $(p \rightarrow q) \rightarrow (p \rightarrow r)$
+  - Transformándola a FNC:
+    - Paso 1 (Eliminar condicionales):
+      - $(\lnot p \lor q) \rightarrow (\lnot p \lor r)$
+      - $\lnot (\lnot p \lor q) \lor (\lnot p \lor r)$
+    - Paso 2 (Leyes de De Morgan):
+      - $(p \land \lnot q) \lor (\lnot p \lor r)$
+      - $(p \land \lnot q) \lor \lnot p \lor r$
+    - Paso 3 (Distributiva): $(p \lor (\lnot p \lor r)) \land (\lnot q \lor (\lnot p \lor r))$
+    - Paso 4 (Asociación): $(p \lor \lnot p \lor r) \land (\lnot q \lor \lnot p \lor r)$
+    - Paso 5 (Eliminar la tautología): $(\lnot q \lor \lnot p \lor r)$
 
-## Conjuntos adecuados de conectivas
+## Conjuntos adecuados de conectivas (1.23)
 
 - Un conjunto de conectivas es adecuado si toda función de verdad puede representarse mediante una f.e que utilice únicamente conectivas de dicho conjunto.
 - Ejemplos de conjuntos adecuados:
@@ -175,9 +247,10 @@ donde $A_1, A_2, \ldots, A_n$ son las **premisas** y $A$ es la **conclusión**.
 
 ### Validez e invalidez
 
-#### Definición e implicaciones
+#### Definición e implicaciones (1.28)
 
-- Una f.a es es **inválida** si es posible que todas las premisas sean verdaderas y la conclusión falsa a la vez. En cualquier otro caso, la f.a es **válida**.
+- Para que una forma argumentativa sea válida debe cumplirse que, bajo cualquier asignación de valores de verdad a las variables de enunciado, si las premisas toman el valor V, la **conclusión también debe tomar el valor V**.
+- Una f.a es **inválida** si es posible que todas las premisas sean verdaderas y la conclusión falsa a la vez. En cualquier otro caso, la f.a es **válida**.
 - ¿Qué ocurre con la conclusión?
   - Si la f.a es válida y las premisas son verdaderas, la conclusión es verdadera.
   - Si la f.a es válida y alguna premisa es falsa, no se puede determinar si la conclusión es verdadera o falsa.
@@ -215,7 +288,7 @@ donde $A_1, A_2, \ldots, A_n$ son las **premisas** y $A$ es la **conclusión**.
     - Paso 3: $p \rightarrow q$ debe ser V. Como $p$ es V y $q$ es V, $p \rightarrow q$ es V.
     - Paso 4: Existe una combinación de valores de verdad que hace que la conclusión sea F pero las premisas V: $p$ es V y $q$ es V. Por lo tanto, la f.a es inválida.
 
-#### Método 3 para determinar validez o invalidez (proposición 1.32)
+#### Método 3 para determinar validez o invalidez (1.32)
 
 - Sea $A_1, A_2, \ldots, A_n \therefore A$ una forma argumentativa.
 - La f.a es válida si y sólo si la f.e $((A_1 \land A_2 \land \ldots \land A_n) \rightarrow A)$ es una **tautología**.
@@ -480,7 +553,8 @@ Intuitivamente, una valoración es una regla que asigna a cada término de $\mat
 
 ### Fórmula satisfactible
 
-- Una fbf $A$ de $\mathscr{L}$ es **satisfactible** si existe al menos una interpretación $I$ para $\mathscr{L}$ en la que $A$ es verdadera.
+- Una fbf $A$ de $\mathscr{L}$ es **satisfactible** si existe al menos una interpretación $I$ con una valoración $v$ para $\mathscr{L}$ en la que $A$ es verdadera.
+- Se denota: $\models_{I, v} A$.
 
 ### Fórmula contradictoria
 
@@ -492,6 +566,13 @@ Intuitivamente, una valoración es una regla que asigna a cada término de $\mat
   - Se denota $\models A$.
 - Si $A$ y $A \rightarrow B$ son lógicamente válidas, entonces $B$ es lógicamente válida (Modus Ponens).
 - Si $A$ es lógicamente válida, entonces $(\forall x_i) A$ también lo es, cualquiera sea $x_i$.
+
+### Ejemplos
+
+1. fbf lógicamente válida pero no tautología: $(\forall x)(P(x) \lor \lnot P(x))$
+2. fbf lógicamente válida y tautología: $(P(x) \lor \lnot P(x))$
+3. fbf satisfactible pero no lógicamente válida: $(\exists x) P(x)$
+4.
 
 ## Tautologías
 
@@ -555,3 +636,26 @@ La L.H tiene una serie de axiomas y reglas que permiten razonar sobre la correcc
 - **Correctitud total**: Si la precondición $P$ es verdadera antes de ejecutar el programa $S$, entonces $S$ siempre terminará y la postcondición $Q$ será verdadera después de ejecutar $S$.
   - **Se garantiza que $S$ termina**.
   - Se denota como $<P> \; S \; <Q>$.
+
+---
+
+# Extra: métodos de prueba
+
+## Por contraejemplo
+
+- Se busca un caso específico que contradiga la afirmación que se quiere probar.
+- Si se encuentra un contraejemplo, se concluye que la afirmación es falsa.
+
+## Por contradicción
+
+- Se asume que la afirmación que se quiere probar es **falsa**.
+- A partir de esta suposición, se llega a una contradicción lógica.
+- Si se llega a una contradicción, se concluye que la afirmación original en realidad es **verdadera**.
+
+## Por inducción
+
+- Se utiliza para probar afirmaciones que dependen de un número natural $n$.
+- Se sigue un proceso en dos pasos:
+  1. **Caso base**: Se prueba que la afirmación es verdadera para el valor inicial (generalmente $n=0$ o $n=1$).
+  2. **Paso inductivo**: Se asume que la afirmación es verdadera para un valor arbitrario $k$ (hipótesis de inducción) y se prueba que también es verdadera para $k+1$.
+- Si ambos pasos se cumplen, se concluye que la afirmación es verdadera para todos los números naturales $n$.
