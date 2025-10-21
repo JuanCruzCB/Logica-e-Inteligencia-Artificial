@@ -400,6 +400,7 @@ El sistema formal $L$ del cálculo de enunciados se define mediante 4 componente
 - Es posible que un sistema formal $L'$ sea una extensión de $L$ sin tener axiomas en común con $L$.
 - Si se extiende demasiado un sistema formal, se puede llegar a un sistema en el que cualquier fbf sea un teorema, lo cual es indeseable.
 - Si una extensión $L'$ de $L$ tiene más reglas de inferencia que $L$, entonces **no necesariamente puede deducir más teoremas que $L$, porque las nuevas reglas pueden ser redundantes: se pueden deducir a partir de las reglas existentes**. Además, puede ocurrir que alguna de las nuevas reglas de inferencia no sean correctas, lo que puede llevar a que $L'$ deduzca fbfs que no son tautologías.
+- **Por lo anterior, se concluye que toda regla de inferencia debe ser una forma argumentativa válida, y que toda forma argumentativa válida preserva la verdad y por lo tanto es una posible regla de inferencia válida**.
 
 ## Consistencia (2.16, 2.17, 2.18 y 2.19)
 
