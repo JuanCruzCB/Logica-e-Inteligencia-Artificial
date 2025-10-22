@@ -446,22 +446,23 @@ El sistema formal $L$ del cálculo de enunciados se define mediante 4 componente
   - Se representa con letras minúsculas, por ejemplo: $x$, $y$, $z$.
 - El **predicado** es lo que se afirma de ese sujeto.
   - Es verdadero o falso.
-  - 
   - Se representa con letras mayúsculas seguidas de paréntesis, por ejemplo: $P(x)$, $Q(y)$, $R(z)$.
 
 ## Cuantificadores (3.1)
 
+### Definición
+
 - A priori, no se supone nada del dominio de $x$, por eso se dice "objeto del universo".
 - **Cuantificador universal**: $\forall x P(x)$ se lee "para todo objeto $x$ del universo, $P(x)$".
-  - Es verdadero si **$P(x)$ es verdadero para todo valor de $x$**.
+  - Es verdadero si **$P(x)$ se cumple para todo valor posible de $x$**.
   - Es falso si existe algún valor de $x$ para el cual $P(x)$ es falso.
   - Un esquema común (aunque no obligatorio) es usar este cuantificador seguido de una **implicación**.
 - **Cuantificador existencial**: $\exists x P(x)$ se lee "existe al menos un objeto $x$ del universo tal que $P(x)$".
   - Es verdadero si existe **al menos un valor de $x$ para el cual $P(x)$ es verdadero**.
-  - Es falso si $P(x)$ es falso para todo valor de $x$.
+  - Es falso si $P(x)$ no se cumple para ningún valor de $x$.
   - Un esquema común (aunque no obligatorio) es usar este cuantificador seguido de una **conjunción**.
 
-## Equivalencias entre $\forall$ y $\exists$ (3.1)
+### Equivalencias entre $\forall$ y $\exists$ (3.1)
 
 - $\exists x P(x) \Leftrightarrow \lnot \forall x \lnot P(x)$
   - Decir "existe al menos un $x$ que cumple $P(x)$" es equivalente a decir "no es cierto que $P(x)$ no se cumple para ningún x".
@@ -473,7 +474,25 @@ El sistema formal $L$ del cálculo de enunciados se define mediante 4 componente
   - Decir "no es cierto que para todo $x$, si $P(x)$ entonces $Q(x)$" es equivalente a decir "existe al menos un $x$ tal que $P(x)$ y no $Q(x)$".
   - Por ejemplo, decir "No es cierto que todos los estudiantes que estudian aprueban" es equivalente a decir "Existe al menos un estudiante que estudia y no aprueba".
 
-## Definición de sistema de primer orden $\mathscr{L}$ (LO1) (3.4)
+### Radio de acción de un cuantificador (3.8)
+
+- El radio de acción de un cuantificador es la fbf que le sigue inmediatamente a su derecha.
+- Ejemplo 1: $\forall x (P(x) \rightarrow Q(x))$
+  - El radio de acción del cuantificador $\forall x$ es la fbf $(P(x) \rightarrow Q(x))$.
+- Ejemplo 2: $\forall x (P(x) \rightarrow \forall y Q(x, y))$
+  - El radio de acción del cuantificador $\forall x$ es la fbf $(P(x) \rightarrow \forall y Q(x, y))$ y el radio de acción del cuantificador $\forall y$ es la fbf $Q(x, y)$.
+
+### Variables ligadas vs libres (3.8)
+
+- Una intervención de la variable $x_i$ en una fbf $A$ se dice que es **ligada** si está dentro del radio de acción de un cuantificador que la incluye. Si una intervención de $x_i$ no es ligada, se dice que es **libre**.
+- Ejemplo 1: $\forall x (P(x) \rightarrow Q(x))$
+  - La variable $x$ está ligada en $P(x)$ y en $Q(x)$.
+- Ejemplo 2: $\exists y (P(x) \land Q(y))$
+  - La variable $y$ está ligada en $Q(y)$, mientras que $x$ está libre en $P(x)$.
+
+## Sistema de primer orden $\mathscr{L}$ (LO1) (3.4)
+
+### Definición
 
 Un sistema de primer orden $\mathscr{L}$ (LO1) se define mediante 7 componentes:
 
@@ -497,7 +516,7 @@ Un sistema de primer orden $\mathscr{L}$ (LO1) se define mediante 7 componentes:
 7. **Cuantificador universal**:
    - $\forall$
 
-## Término de $\mathscr{L}$ (3.6)
+### Término de $\mathscr{L}$ (3.6)
 
 - Un término de $\mathscr{L}$ es cualquier expresión que se interpreta como un objeto, es decir, las cosas a las que se aplican las funciones, las cosas que tienen propiedades, las cosas acerca de las cuales se hacen afirmaciones.
 - Se define inductivamente mediante las reglas:
@@ -505,29 +524,17 @@ Un sistema de primer orden $\mathscr{L}$ (LO1) se define mediante 7 componentes:
   2. Toda constante es un término.
   3. Si $f$ es una función de aridad $n$ y $t_1, t_2, \ldots, t_n$ son términos, entonces $f(t_1, t_2, \ldots, t_n)$ es un término.
 - Claramente, $\mathscr{L}$ tiene **infinitos** términos.
+- Ejemplo 1: $$x_1, c_2, f_1(x_1), f_2(c_1, x_3), f_3(f_1(x_2), c_2, x_4)$$ son términos de $\mathscr{L}$ si $c_1, c_2$ son constantes, $f_1$ es una función de aridad 1, $f_2$ es una función de aridad 2 y $f_3$ es una función de aridad 3.
+- Ejemplo 2: Si $F = \emptyset$ y $C = \{c_1, c_2\}$, entonces los únicos términos de $\mathscr{L}$ son las constantes $c_1$ y $c_2$ y las variables $x_1, x_2, x_3, ...$.
 
-## Fórmula bien formada (fbf) de $\mathscr{L}$
+### Fórmula bien formada (fbf) de $\mathscr{L}$
 
 - Una fórmula atómica de $\mathscr{L}$ es una expresión de la forma $P(t_1, t_2, \ldots, t_n)$ donde $P$ es un predicado de aridad $n$ y $t_1, t_2, \ldots, t_n$ son términos.
 - Una fórmula bien formada (fbf) de $\mathscr{L}$ se define por:
   - Toda fórmula atómica es una fbf.
   - Si $A$ y $B$ son fbf, entonces $(\lnot A)$ y $(A \rightarrow B)$ son fbf y $\forall x_i A$ es fbf siendo $x_i$ una variable cualquiera.
-
-## Radio de acción de un cuantificador (3.8)
-
-- El radio de acción de un cuantificador es la fbf que le sigue inmediatamente a su derecha.
-- Ejemplo 1: $\forall x (P(x) \rightarrow Q(x))$
-  - El radio de acción del cuantificador $\forall x$ es la fbf $(P(x) \rightarrow Q(x))$.
-- Ejemplo 2: $\forall x (P(x) \rightarrow \forall y Q(x, y))$
-  - El radio de acción del cuantificador $\forall x$ es la fbf $(P(x) \rightarrow \forall y Q(x, y))$ y el radio de acción del cuantificador $\forall y$ es la fbf $Q(x, y)$.
-
-## Variables ligadas vs libres (3.8)
-
-- Una intervención de la variable $x_i$ en una fbf $A$ se dice que es **ligada** si está dentro del radio de acción de un cuantificador que la incluye. Si una intervención de $x_i$ no es ligada, se dice que es **libre**.
-- Ejemplo 1: $\forall x (P(x) \rightarrow Q(x))$
-  - La variable $x$ está ligada en $P(x)$ y en $Q(x)$.
-- Ejemplo 2: $\exists y (P(x) \land Q(y))$
-  - La variable $y$ está ligada en $Q(y)$, mientras que $x$ está libre en $P(x)$.
+- Ejemplo 1: $P(x)$ es una fbf si $P$ es un predicado de aridad 1 y $x$ es una variable.
+- Ejemplo 2: $\forall x (P(x) \rightarrow Q(f(c, x)))$ es una fbf si $P$ es un predicado de aridad 1, $Q$ es un predicado de aridad 1, $f$ es una función de aridad 2, $c$ es una constante y $x$ es una variable.
 
 ## Términos ligados vs libres (3.11)
 
@@ -577,6 +584,7 @@ Intuitivamente, una valoración es una regla que asigna a cada término de $\mat
 - Sea $A$ una fbf de $\mathscr{L}$ y sea $I$ una interpretación para $\mathscr{L}$.
 - $A$ es **verdadera** en $I$ si toda valoración $v$ en $I$ satisface a $A$.
   - Se denota $I \models A$.
+  - Que sea verdadera implica que es satisfactible en $I$.
 - $A$ es **falsa** en $I$ si ninguna valoración $v$ en $I$ satisface a $A$.
   - Se denota $I \not\models A$.
 - $A$ no es **ni verdadera ni falsa** en $I$ si alguna valoración $v$ en $I$ satisface a $A$ y otra no la satisface.
@@ -592,6 +600,7 @@ Intuitivamente, una valoración es una regla que asigna a cada término de $\mat
 ### Fórmula contradictoria (3.35)
 
 - Una fbf $A$ de $\mathscr{L}$ es una **contradicción** si para toda interpretación $I$ para $\mathscr{L}$, $A$ es falsa en $I$.
+- Intuitivamente, que una fbf sea contradictoria implica que **no es satisfactible**.
 
 ### Fórmula lógicamente válida (3.35)
 
@@ -600,12 +609,35 @@ Intuitivamente, una valoración es una regla que asigna a cada término de $\mat
 - Si $A$ y $A \rightarrow B$ son lógicamente válidas, entonces $B$ es lógicamente válida (Modus Ponens).
 - Si $A$ es lógicamente válida, entonces $(\forall x_i) A$ también lo es, cualquiera sea $x_i$.
 
+### Resumen
+
+| Tipo de fbf        | Definición                                                                               | Notación                  |
+| ------------------ | ---------------------------------------------------------------------------------------- | ------------------------- |
+| Satisfactible      | Existe al menos una interpretación $I$ y una valoración $v$ en $I$ que la hace verdadera | $\models_{I, v} A$        |
+| Lógicamente válida | Para toda interpretación $I$ para $\mathscr{L}$, $A$ es verdadera en $I$                 | $\models A$               |
+| Contradictoria     | Para toda interpretación $I$ para $\mathscr{L}$, $A$ es falsa en $I$                     | $\models I \not\models A$ |
+| Verdadera en $I$   | **Toda valoración $v$ en una interpretación $I$** satisface a $A$                        | $I \models A$             |
+| Falsa en $I$       | **Ninguna valoración $v$ en una interpretación $I$** satisface a $A$                     | $I \not\models A$         |
+
 ### Ejemplos
 
-1. fbf lógicamente válida pero no tautología: $(\forall x)(P(x) \lor \lnot P(x))$
-2. fbf lógicamente válida y tautología: $(P(x) \lor \lnot P(x))$
-3. fbf satisfactible pero no lógicamente válida: $(\exists x) P(x)$
-4.
+- **Satisfactible pero no lógicamente válida**:
+  - $\exists x P(x)$
+  - Esta fórmula es satisfactible porque existe al menos una interpretación $I$ donde es verdadera.
+  - Por ejemplo, si el dominio es $D_\mathbb{N}$ y $P(x)$ se interpreta como "x es par", entonces $\exists x P(x)$ es **verdadera** porque hay al menos una valoración $v$ que la satisface $(v(x) = 2)$. Como es verdadera, es satisfactible.
+  - Sin embargo, **no es lógicamente válida** porque en otra interpretación, como $D = \{x | x \in \mathbb{N} \land x < 2\}$ ningún elemento satisface $P(x)$, por lo que $\exists x P(x)$ es **falsa** en esa interpretación.
+- **Lógicamente válida**:
+  - $\forall x (P(x) \rightarrow P(x))$
+  - Esta fórmula es lógicamente válida porque es verdadera en todas las interpretaciones posibles. Independientemente del dominio o de cómo se interprete el predicado $P$, la implicación $P(x) \rightarrow P(x)$ siempre es verdadera para cualquier $x$, ya que es una tautología: proviene por sustitución de la tautología $(p \rightarrow p)$ de la lógica de enunciados.
+- **Verdadera en $I$ pero falsa en $I'$**:
+  - $\forall x (P(x))$
+  - Esta fórmula puede ser **verdadera** en una interpretación $I$ pero **falsa** en otra interpretación $I'$.
+  - Por ejemplo, si en la interpretación $I$ el dominio es $D_\mathbb{N}$ y $P(x)$ se interpreta como "$x >= 0$", entonces $\forall x (P(x))$ es **verdadera** en $I$ porque todos los números naturales cumplen $P(x)$.
+  - Sin embargo, si en otra interpretación $I'$ el dominio es $D_\mathbb{N}$ nuevamente pero $P(x)$ se interpreta como "x es par", entonces $\forall x (P(x))$ es **falsa** en $I'$ porque no todos los naturales son pares, por ejemplo $v(x) = 1$, $P(x)$ es falso y por lo tanto el $\forall$ no se cumple y entonces la fbf es **falsa** en $I'$.
+  - **Como la fbf es verdadera en una interpretación y falsa en otra, no es lógicamente válida ni tampoco contradictoria**.
+- **Contradictoria**:
+  - $(P(x) \land \lnot P(x))$
+  - Esta fórmula es contradictoria porque es **falsa** en toda interpretación posible. Para cualquier dominio y cualquier interpretación de $P(x)$, la conjunción de $P(x)$ y su negación siempre es falsa, ya que $P(x)$ no puede ser verdadero y falso simultáneamente. Esta fbf proviene por sustitución de la contradicción $(p \land \lnot p)$ de la lógica de enunciados.
 
 ## Tautologías (3.30 y 3.31)
 
