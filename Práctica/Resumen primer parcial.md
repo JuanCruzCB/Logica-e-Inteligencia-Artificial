@@ -614,13 +614,13 @@ Intuitivamente, una valoración es una regla que asigna a cada término de $\mat
 
 ### Resumen
 
-| Tipo de fbf        | Definición                                                                               | Notación                  |
-| ------------------ | ---------------------------------------------------------------------------------------- | ------------------------- |
-| Satisfactible      | Existe al menos una interpretación $I$ y una valoración $v$ en $I$ que la hace verdadera | $\models_{I, v} A$        |
-| Lógicamente válida | Para toda interpretación $I$ para $\mathscr{L}$, $A$ es verdadera en $I$                 | $\models A$               |
-| Contradictoria     | Para toda interpretación $I$ para $\mathscr{L}$, $A$ es falsa en $I$                     | $\models I \not\models A$ |
-| Verdadera en $I$   | **Toda valoración $v$ en una interpretación $I$** satisface a $A$                        | $I \models A$             |
-| Falsa en $I$       | **Ninguna valoración $v$ en una interpretación $I$** satisface a $A$                     | $I \not\models A$         |
+| Tipo de fbf        | Definición                                                                               | Notación           |
+| ------------------ | ---------------------------------------------------------------------------------------- | ------------------ |
+| Satisfactible      | Existe al menos una interpretación $I$ y una valoración $v$ en $I$ que la hace verdadera | $\models_{I, v} A$ |
+| Lógicamente válida | Para toda interpretación $I$ para $\mathscr{L}$, $A$ es verdadera en $I$                 | $\models A$        |
+| Contradictoria     | Para toda interpretación $I$ para $\mathscr{L}$, $A$ es falsa en $I$                     | $\not\models A$    |
+| Verdadera en $I$   | **Toda valoración $v$ en una interpretación $I$** satisface a $A$                        | $I \models A$      |
+| Falsa en $I$       | **Ninguna valoración $v$ en una interpretación $I$** satisface a $A$                     | $I \not\models A$  |
 
 ### Ejemplos
 
