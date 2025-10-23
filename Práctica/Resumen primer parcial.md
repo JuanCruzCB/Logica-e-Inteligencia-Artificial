@@ -522,19 +522,21 @@ Un sistema de primer orden $\mathscr{L}$ (LO1) se define mediante 7 componentes:
 - Se define inductivamente mediante las reglas:
   1. Toda variable es un término.
   2. Toda constante es un término.
-  3. Si $f$ es una función de aridad $n$ y $t_1, t_2, \ldots, t_n$ son términos, entonces $f(t_1, t_2, \ldots, t_n)$ es un término.
+  3. Todo símbolo de función aplicado a un término es un término. Si $f$ es una función de aridad $n$ y $t_1, t_2, \ldots, t_n$ son términos, entonces $f(t_1, t_2, \ldots, t_n)$ es un término.
 - Claramente, $\mathscr{L}$ tiene **infinitos** términos.
 - Ejemplo 1: $$x_1, c_2, f_1(x_1), f_2(c_1, x_3), f_3(f_1(x_2), c_2, x_4)$$ son términos de $\mathscr{L}$ si $c_1, c_2$ son constantes, $f_1$ es una función de aridad 1, $f_2$ es una función de aridad 2 y $f_3$ es una función de aridad 3.
 - Ejemplo 2: Si $F = \emptyset$ y $C = \{c_1, c_2\}$, entonces los únicos términos de $\mathscr{L}$ son las constantes $c_1$ y $c_2$ y las variables $x_1, x_2, x_3, ...$.
 
 ### Fórmula bien formada (fbf) de $\mathscr{L}$
 
-- Una fórmula atómica de $\mathscr{L}$ es una expresión de la forma $P(t_1, t_2, \ldots, t_n)$ donde $P$ es un predicado de aridad $n$ y $t_1, t_2, \ldots, t_n$ son términos.
-- Una fórmula bien formada (fbf) de $\mathscr{L}$ se define por:
+- Una **fórmula atómica** de $\mathscr{L}$ es una expresión de la forma $P(t_1, t_2, \ldots, t_n)$ donde $P$ es un predicado de aridad $n$ y $t_1, t_2, \ldots, t_n$ son términos.
+- Una **fórmula bien formada** (fbf) de $\mathscr{L}$ se define por:
   - Toda fórmula atómica es una fbf.
   - Si $A$ y $B$ son fbf, entonces $(\lnot A)$ y $(A \rightarrow B)$ son fbf y $\forall x_i A$ es fbf siendo $x_i$ una variable cualquiera.
+- Intuitivamente, una fbf es una expresión que puede ser verdadera o falsa.
 - Ejemplo 1: $P(x)$ es una fbf si $P$ es un predicado de aridad 1 y $x$ es una variable.
 - Ejemplo 2: $\forall x (P(x) \rightarrow Q(f(c, x)))$ es una fbf si $P$ es un predicado de aridad 1, $Q$ es un predicado de aridad 1, $f$ es una función de aridad 2, $c$ es una constante y $x$ es una variable.
+- Ejemplo 3: $f^3_1(x, y, z)$ no es una fbf, ya que no devuelve verdadero o falso, sino un objeto del dominio.
 
 ## Términos ligados vs libres (3.11)
 
@@ -546,7 +548,7 @@ Un sistema de primer orden $\mathscr{L}$ (LO1) se define mediante 7 componentes:
 
 Una interpretación $I$ para $\mathscr{L}$ se define mediante 4 componentes:
 
-1. Un conjunto **no vacío** $D_I$, llamado dominio de la interpretación.
+1. Un conjunto $D_I$, llamado dominio de la interpretación, donde **$D_I \neq \emptyset$**.
 2. Una colección de elementos distinguidos (constantes): $\bar a_i$.
 3. Una colección de funciones definidas sobre $D_I$: $\bar f_i^n$.
 4. Una colección de relaciones (predicados) definidas sobre $D_I$: $\bar A_i^n$.
@@ -567,6 +569,7 @@ Intuitivamente, una valoración es una regla que asigna a cada término de $\mat
 ## I-equivalencias (3.19)
 
 - Dos valoraciones $v$ y $w$ son i-equivalentes si $v(x_i) = w(x_j)$ para todo $j \neq i$
+- Intuitivamente, dos valoraciones son i-equivalentes si coinciden en todos los valores excepto para la variable $x_i$.
 
 ## Satisfacción de una valoración (3.20)
 
