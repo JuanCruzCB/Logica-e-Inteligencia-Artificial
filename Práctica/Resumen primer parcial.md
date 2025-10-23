@@ -73,7 +73,7 @@ Para saber si una f.e es tautología, contradicción o contingencia, se construy
 
 ### Tautología
 
-- **Tautología**: f.e que toma el valor de verdad $V$ bajo cada una de las posibles asignaciones de valores de verdad a sus variables de enunciado.
+- f.e que toma el valor de verdad $V$ bajo cada una de las posibles asignaciones de valores de verdad a sus variables de enunciado.
 - Ejemplo: $(p \lor \lnot p)$
 
   | $p$ | $\lnot p$ | $p \lor \lnot p$ |
@@ -83,7 +83,7 @@ Para saber si una f.e es tautología, contradicción o contingencia, se construy
 
 ### Contradicción
 
-- **Contradicción**: f.e que toma el valor de verdad $F$ bajo cada una de las posibles asignaciones de valores de verdad a sus variables de enunciado.
+- f.e que toma el valor de verdad $F$ bajo cada una de las posibles asignaciones de valores de verdad a sus variables de enunciado.
 - Ejemplo: $(p \land \lnot p)$
 
   | $p$ | $\lnot p$ | $p \land \lnot p$ |
@@ -93,7 +93,7 @@ Para saber si una f.e es tautología, contradicción o contingencia, se construy
 
 ### Contingencia
 
-- **Contingencia**: f.e que no es ni tautología ni contradicción.
+- f.e que no es ni tautología ni contradicción.
 - Ejemplo: $(p \land q)$
 
   | $p$ | $q$ | $p \land q$ |
@@ -107,14 +107,13 @@ Para saber si una f.e es tautología, contradicción o contingencia, se construy
 
 - Sean $A$ y $B$ dos f.e.
 - $A$ **implica lógicamente** a $B$ si $(A \rightarrow B)$ es una tautología.
+- Se denota $(A \Rightarrow B)$.
+- Ejemplo: $p \Rightarrow p$ porque $(p \rightarrow p)$ es una tautología:
 
-  - Se denota $(A \Rightarrow B)$
-  - Ejemplo: $p \Rightarrow p$ porque $(p \rightarrow p)$ es una tautología:
-
-  | $p$ | $p \rightarrow p$ |
-  | --- | ----------------- |
-  | V   | V                 |
-  | F   | V                 |
+| $p$ | $p \rightarrow p$ |
+| --- | ----------------- |
+| V   | V                 |
+| F   | V                 |
 
 ## Equivalencia lógica $(\Leftrightarrow)$ (1.7)
 
@@ -122,9 +121,8 @@ Para saber si una f.e es tautología, contradicción o contingencia, se construy
 
 - Sean $A$ y $B$ dos f.e.
 - $A$ y $B$ son **lógicamente equivalentes** si $(A \leftrightarrow B)$ es una tautología.
-
-  - Se denota $(A \Leftrightarrow B)$
-  - Ejemplo: $(p \land p) \Leftrightarrow p$ porque $((p \land p) \leftrightarrow p)$ es una tautología:
+- Se denota $(A \Leftrightarrow B)$.
+- Ejemplo: $(p \land p) \Leftrightarrow p$ porque $((p \land p) \leftrightarrow p)$ es una tautología:
 
   | $p$ | $p \land p$ | $(p \land p) \leftrightarrow p$ |
   | --- | ----------- | ------------------------------- |
@@ -140,7 +138,7 @@ Para saber si una f.e es tautología, contradicción o contingencia, se construy
 
 ### Leyes de absorción
 
-- $p \land \lnot p \Leftrightarrow p$
+- $p \land p \Leftrightarrow p$
 - $p \lor p \Leftrightarrow p$
 
 ### Leyes conmutativas
@@ -150,8 +148,8 @@ Para saber si una f.e es tautología, contradicción o contingencia, se construy
 
 ### Leyes asociativas
 
-- **De la conjunción**: $((p \land q) \land r) \Leftrightarrow (p \land (q \land r))$
-- **De la disyunción**: $((p \lor q) \lor r) \Leftrightarrow (p \lor (q \lor r))$
+- **De la conjunción**: $((p \land q) \land r) \Leftrightarrow (p \land (q \land r)) \Leftrightarrow (p \land q \land r)$
+- **De la disyunción**: $((p \lor q) \lor r) \Leftrightarrow (p \lor (q \lor r)) \Leftrightarrow (p \lor q \lor r)$
 
 ### Leyes distributivas
 
@@ -276,17 +274,16 @@ donde $A_1, A_2, \ldots, A_n$ son las **premisas** y $A$ es la **conclusión**.
 
 #### Método 2 para determinar validez o invalidez (método sencillo)
 
-- Método sencillo para determinar si una f.a es inválida sin necesidad de construir la tabla de verdad completa:
-  - Se fuerza la conclusión a ser falsa.
-  - Se fuerza cada premisa a ser verdadera.
-  - Se chequea si existe alguna combinación de valores de verdad para las variables de enunciado que cumpla lo anterior.
-  - Ejemplo:
-    - Premisas: $p$, $p \rightarrow q$
-    - Conclusión: $\lnot q$
-    - Paso 1: $\lnot q$ debe ser F, por lo tanto $q$ debe ser V.
-    - Paso 2: $p$ debe ser V.
-    - Paso 3: $p \rightarrow q$ debe ser V. Como $p$ es V y $q$ es V, $p \rightarrow q$ es V.
-    - Paso 4: Existe una combinación de valores de verdad que hace que la conclusión sea F pero las premisas V: $p$ es V y $q$ es V. Por lo tanto, la f.a es inválida.
+- Se fuerza la conclusión a ser falsa.
+- Se fuerza cada premisa a ser verdadera.
+- Se chequea si existe alguna combinación de valores de verdad para las variables de enunciado que cumpla lo anterior.
+- Ejemplo:
+  - Premisas: $p$, $p \rightarrow q$
+  - Conclusión: $\lnot q$
+  - Paso 1: $\lnot q$ debe ser F, por lo tanto $q$ debe ser V.
+  - Paso 2: $p$ debe ser V.
+  - Paso 3: $p \rightarrow q$ debe ser V. Como $p$ es V y $q$ es V, $p \rightarrow q$ es V.
+  - Paso 4: Existe una combinación de valores de verdad que hace que la conclusión sea F pero las premisas V: $p$ es V y $q$ es V. Por lo tanto, la f.a es inválida.
 
 #### Método 3 para determinar validez o invalidez (1.32)
 
@@ -402,7 +399,9 @@ El sistema formal $L$ del cálculo de enunciados se define mediante 4 componente
 - Si una extensión $L'$ de $L$ tiene más reglas de inferencia que $L$, entonces **no necesariamente puede deducir más teoremas que $L$, porque las nuevas reglas pueden ser redundantes: se pueden deducir a partir de las reglas existentes**. Además, puede ocurrir que alguna de las nuevas reglas de inferencia no sean correctas, lo que puede llevar a que $L'$ deduzca fbfs que no son tautologías.
 - **Por lo anterior, se concluye que toda regla de inferencia debe ser una forma argumentativa válida, y que toda forma argumentativa válida preserva la verdad y por lo tanto es una posible regla de inferencia válida**.
 
-## Consistencia (2.16, 2.17, 2.18 y 2.19)
+## Propiedades del sistema formal $L$
+
+### Consistencia (2.16, 2.17, 2.18 y 2.19)
 
 - **El sistema formal $L$ es consistente**.
 - Una extensión $L'$ de $L$ es **consistente** si no existe ninguna fbf $A$ de $L$ tal que tanto $A$ como $\lnot A$ sean teoremas de $L'$.
@@ -418,23 +417,32 @@ El sistema formal $L$ del cálculo de enunciados se define mediante 4 componente
   - (7): $B$ (MP entre (1) y (6))
   - Es decir, a partir de un conjunto contradictorio de fbfs $\Gamma$, se puede demostrar cualquier fbf $B$: $$\Gamma \vdash_L B$$
 
-## Completitud (2.20)
+### Completitud (2.20)
 
 - **El sistema formal $L$ no es completo**.
 - Una extensión $L'$ de $L$ es **completa** si para toda fbf $A$ de $L$, $A$ o $\lnot A$ es un teorema de $L'$.
 - Toda extensión inconsistente de $L$ es completa, pero no toda extensión consistente de $L$ es completa.
 
-## Correctitud (2.23)
+### Correctitud (2.23)
 
 - **El sistema formal $L$ es correcto**.
 - Una extensión $L'$ es correcta si todo teorema de $L'$ es una tautología.
 - Para demostrarlo, se prueba que todos los axiomas de $L'$ son tautologías y que la regla de inferencia (MP) preserva la verdad.
 - **Teorema de adecuación de $L$**: Si $A$ es una fbf de $L$ y $A$ es una tautología, entonces $A$ es un teorema de $L$: $$\vdash_L A$$
 
-## Decidibilidad (2.24)
+### Decidibilidad (2.24)
 
 - **El sistema formal $L$ es decidible**.
 - Un sistema formal es decidible si existe un método efectivo para decidir si una fbf dada del sistema es un teorema o no del mismo.
+
+### Resumen
+
+| Propiedad         | ¿Se cumple en $L$? | ¿Por qué?                                                                      |
+| ----------------- | ------------------ | ------------------------------------------------------------------------------ |
+| **Consistencia**  | Sí                 | Porque no se puede demostrar una contradicción en $L$.                         |
+| **Completitud**   | No                 | Porque no todas las fbfs de $L$ son teoremas de $L$.                           |
+| **Correctitud**   | Sí                 | Porque todos los teoremas de $L$ son tautologías.                              |
+| **Decidibilidad** | Sí                 | Porque existe un método efectivo para decidir si una fbf es un teorema de $L$. |
 
 ---
 
@@ -456,11 +464,11 @@ El sistema formal $L$ del cálculo de enunciados se define mediante 4 componente
 - **Cuantificador universal**: $\forall x P(x)$ se lee "para todo objeto $x$ del universo, $P(x)$".
   - Es verdadero si **$P(x)$ se cumple para todo valor posible de $x$**.
   - Es falso si existe algún valor de $x$ para el cual $P(x)$ es falso.
-  - Un esquema común (aunque no obligatorio) es usar este cuantificador seguido de una **implicación**.
+  - Un esquema común (aunque no obligatorio) es usar este cuantificador seguido de una **implicación** $(\rightarrow)$.
 - **Cuantificador existencial**: $\exists x P(x)$ se lee "existe al menos un objeto $x$ del universo tal que $P(x)$".
   - Es verdadero si existe **al menos un valor de $x$ para el cual $P(x)$ es verdadero**.
   - Es falso si $P(x)$ no se cumple para ningún valor de $x$.
-  - Un esquema común (aunque no obligatorio) es usar este cuantificador seguido de una **conjunción**.
+  - Un esquema común (aunque no obligatorio) es usar este cuantificador seguido de una **conjunción** $(\land)$.
 
 ### Equivalencias entre $\forall$ y $\exists$ (3.1)
 
@@ -485,10 +493,10 @@ El sistema formal $L$ del cálculo de enunciados se define mediante 4 componente
 ### Variables ligadas vs libres (3.8)
 
 - Una intervención de la variable $x_i$ en una fbf $A$ se dice que es **ligada** si está dentro del radio de acción de un cuantificador que la incluye. Si una intervención de $x_i$ no es ligada, se dice que es **libre**.
-- Ejemplo 1: $\forall x (P(x) \rightarrow Q(x))$
-  - La variable $x$ está ligada en $P(x)$ y en $Q(x)$.
-- Ejemplo 2: $\exists y (P(x) \land Q(y))$
-  - La variable $y$ está ligada en $Q(y)$, mientras que $x$ está libre en $P(x)$.
+- Ejemplo 1: $\forall x_1 (P(x_1) \rightarrow Q(x_1))$
+  - La variable $x_1$ está ligada en $P(x_1)$ y en $Q(x_1)$.
+- Ejemplo 2: $\exists x_2 (P(x_1) \land Q(x_2))$
+  - La variable $x_2$ está ligada en $Q(x_2)$, mientras que $x_1$ está libre en $P(x_1)$.
 
 ## Sistema de primer orden $\mathscr{L}$ (LO1) (3.4)
 
@@ -504,7 +512,7 @@ Un sistema de primer orden $\mathscr{L}$ (LO1) se define mediante 7 componentes:
 3. **Un conjunto finito de predicados**:
    - $P = \{P_1, P_2, P_3, P_n\}$
    - Cada predicado tiene un número fijo de argumentos (su aridad) $1..n$.
-   - $P$ no puede ser $\emptyset$
+   - $P \neq \emptyset$
 4. **Un conjunto finito de funciones**:
    - $F = \{f_1, f_2, f_3, f_n\}$
    - Cada función tiene un número fijo de argumentos (su aridad) $1..n$.
