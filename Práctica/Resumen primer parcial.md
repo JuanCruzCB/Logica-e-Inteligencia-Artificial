@@ -190,6 +190,8 @@ Para saber si una f.e es tautología, contradicción o contingencia, se construy
   - El conjunto $\Gamma = \{(p), (\lnot p)\}$ no es satisfactible porque no existe ninguna asignación de valores de verdad para las letras de proposición que haga verdaderas a TODAS las f.e de $\Gamma$:
     - Si $p = V$, entonces $(p) = V$ pero $(\lnot p) = F$.
     - Si $p = F$, entonces $(p) = F$ pero $(\lnot p) = V$.
+- **NOTA**: Que un conjunto $\Gamma$ de f.e sea satisfactible no necesariamente implica que un conjunto $\Gamma' = \{ \lnot A | A \in \Gamma \}$ también sea satisfactible:
+  - Contraejemplo: $\Gamma = \{(p \lor \lnot p )\}$ es satisfactible porque la fbf es una tautología, pero $\Gamma' = \{(\lnot (p \lor \lnot p))\}$ NO es satisfactible porque la negación de una tautología es una contradicción y éstas nunca pueden ser verdaderas y por lo tanto $\Gamma'$ no es satisfactible.
 
 ## Formas normales
 
