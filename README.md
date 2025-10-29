@@ -17,15 +17,17 @@
 
 ## Cómo se aprueba la cursada?
 
-- Hay un parcial con un recuperatorio donde se evalúa el módulo de Lógica (prácticas 1 a 6).
+- El módulo de **Lógica** (prácticas 1 a 6) se evalúa a través de un parcial con un recuperatorio.
   - Este parcial es libro abierto, es decir se puede llevar el libro de Lógica Para Matemáticos (Hamilton) con apuntes en él, subrayados, etc.
   - No se usan hojas, se entrega un examen preimpreso.
   - No se permite el uso de celulares ni relojes inteligentes.
   - Con 6 o más se accede a la promoción.
   - 10 ejercicios, todos valen un punto.
   - Se requiere llevar DNI.
-- Hay un proyecto con un recuperatorio donde se evalúa el módulo de Inteligencia Artificial.
-  - Se aprueba con 6 o más.
+- El módulo de **Inteligencia Artificial** (prácticas 7 a 9) se evalúa entregando estas 3 prácticas.
+  - Cada una de estas prácticas se entrega por IDEAS (PDF de la resolución, links al código ejecutable y un texto explicando la resolución de los ejercicios) con asunto **ENTREGA TP NN** y debe ser resuelta en grupos de 3 o 4 alumnos.
+  - Con calificación 6 o más (en cada práctica) se accede a la promoción. Con 4 o 5 solo se aprueba la cursada.
+  - El docente podría solicitar una reunión con los alumnos para completar la evaluación de los TPs.
 - Se deben aprobar ambos módulos para obtener la cursada.
 
 ## Cómo se aprueba la promoción?
