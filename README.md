@@ -11,6 +11,8 @@
 
 ## Práctica
 
+- [Google Drive para las últimas 3 prácticas grupales](https://drive.google.com/drive/folders/15k86Ai1qhQnS1-5ZlND1LW2H8ej_AWJ8?usp=sharing)
+
 ## Teoría
 
 - [Playlist con clases de teoría de 2020](https://www.youtube.com/playlist?list=PLDJU8kNAPOn8OZcdahKl8_kuraf_sYq7V)
